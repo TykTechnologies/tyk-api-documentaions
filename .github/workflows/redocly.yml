@@ -7,13 +7,13 @@ on:
       - "*"
 jobs:
   swagger_editor_validator_remote:
-    runs-on: ubuntu-latest
+    runs-on: redocly/cli
     name: Validate the swagger with redocly
 
     steps:
       - uses: actions/checkout@v2
       - name: Validate OpenAPI definition with redocly
         run: |
-          cd scripts/navigation-levels
+          lint tyk-api-documentation/swagger.yaml
           go run main.go --max=$MAX_LEVELS
 
