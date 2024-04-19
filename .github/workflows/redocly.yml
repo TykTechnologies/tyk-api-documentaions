@@ -12,8 +12,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
       - name: Validate OpenAPI definition with redocly
         run: |
-          lint tyk-api-documentation/swagger.yaml
-          go run main.go --max=$MAX_LEVELS
+          npm install @redocly/cli -g
+          redocly lint tyk-api-documentation/swagger.yaml
 
