@@ -7,7 +7,7 @@ on:
 jobs:
   test_swagger_editor_validator_remote:
     runs-on: ubuntu-latest
-    name: Validate the swagger with redocly
+    name: Validate the swagger with redocly cli
 
     steps:
       - uses: actions/checkout@v2
